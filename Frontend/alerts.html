@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Alerts | BP-DSS Financial</title>
+
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#135bec",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .sidebar-item-active {
+            background-color: rgba(19, 91, 236, 0.1);
+            color: #135bec;
+            border-right: 3px solid #135bec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 bg-white dark:bg-slate-900 flex flex-col justify-between">
+<div class="flex flex-col">
+<!-- Brand Logo Area -->
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary rounded-lg p-2 text-white">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-none">BP-DSS</h1>
+<p class="text-slate-500 text-xs mt-1">Corporate Banking</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="mt-4 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">account_balance_wallet</span>
+<span class="text-sm font-medium">Accounts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">swap_horiz</span>
+<span class="text-sm font-medium">Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-sm font-semibold">System Alerts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Bottom User Profile -->
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2">
+<div class="size-9 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Profile" data-alt="Corporate professional user profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDM3p6vEJmPYbOsn4HbiftgRiaakfmHEowrXzltZO8CYOeu7ubTgIDas5dQIzzPw1GnhPVIIF3J4Fb5pxJ6qU8Mz04cY92aPtoyM644PTOz2UJlUf9x4GFswcWTYCBSDTtpV3tqqfqqqHqb3fE9S4WRorOM9BtkmfrmCOTtK6P9E3dN5UjHpywV0gL55RJGq29-JQEr3PPim_BiCc5v9o4wtyGPmKxahCKvu22nGBxZnE2djRYw7asuCuCmkiBomOsvpygNGmG8HVY"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-900 dark:text-white">Alex Sterling</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Admin Account</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto flex flex-col">
+<!-- Header Section -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 px-8 py-6 sticky top-0 z-10 flex flex-wrap justify-between items-center gap-4">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">System Alerts</h2>
+<p class="text-slate-500 text-sm mt-1">Manage your financial security and transaction notifications</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                        Mark all as read
+                    </button>
+<button class="px-4 py-2 text-sm font-bold text-white bg-primary hover:bg-primary/90 rounded-lg transition-all shadow-sm">
+                        Refresh
+                    </button>
+</div>
+</header>
+<!-- Filter Tabs -->
+<div class="px-8 mt-6">
+<div class="flex border-b border-slate-200 dark:border-slate-800 gap-8">
+<button class="pb-3 border-b-2 border-primary text-primary text-sm font-bold">
+                        Unread (4)
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 text-sm font-bold">
+                        Archived
+                    </button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 text-sm font-bold">
+                        All Activity
+                    </button>
+</div>
+</div>
+<!-- Alerts List Content -->
+<section class="p-8 space-y-4 max-w-5xl">
+<!-- Alert Row: High Severity -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-red-100 shadow-sm p-5 flex items-start justify-between gap-4 border-l-4 border-l-red-500">
+<div class="flex items-start gap-4">
+<div class="bg-red-50 p-2.5 rounded-lg text-red-600">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="text-slate-900 dark:text-white font-bold text-base leading-tight">Suspicious Login Attempt</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black uppercase tracking-wider">High Severity</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">A login attempt was detected from an unrecognized IP address (192.168.1.104) in London, UK. If this wasn't you, please reset your password immediately.</p>
+<p class="text-slate-400 text-xs font-medium flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                Oct 24, 2023 • 10:45 AM
+                            </p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="group p-2 hover:bg-slate-100 rounded-full transition-colors relative" title="Mark as read">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Alert Row: Medium Severity -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-amber-100 shadow-sm p-5 flex items-start justify-between gap-4 border-l-4 border-l-amber-500">
+<div class="flex items-start gap-4">
+<div class="bg-amber-50 p-2.5 rounded-lg text-amber-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="text-slate-900 dark:text-white font-bold text-base leading-tight">Large Transaction Pending</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-black uppercase tracking-wider">Medium Severity</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Outbound transfer of $50,000.00 to account Ending in ****8821 requires secondary approval by a senior manager.</p>
+<p class="text-slate-400 text-xs font-medium flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                Oct 24, 2023 • 09:15 AM
+                            </p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="group p-2 hover:bg-slate-100 rounded-full transition-colors" title="Mark as read">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Alert Row: Low Severity -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-blue-100 shadow-sm p-5 flex items-start justify-between gap-4 border-l-4 border-l-primary">
+<div class="flex items-start gap-4">
+<div class="bg-blue-50 p-2.5 rounded-lg text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="text-slate-900 dark:text-white font-bold text-base leading-tight">Monthly Statement Available</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-primary text-[10px] font-black uppercase tracking-wider">Low Severity</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Your account statement for the period ending Sept 30, 2023 is now available for download in the documents section.</p>
+<p class="text-slate-400 text-xs font-medium flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                Oct 23, 2023 • 05:00 PM
+                            </p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="group p-2 hover:bg-slate-100 rounded-full transition-colors" title="Mark as read">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Alert Row: Low Severity -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-blue-100 shadow-sm p-5 flex items-start justify-between gap-4 border-l-4 border-l-primary">
+<div class="flex items-start gap-4">
+<div class="bg-blue-50 p-2.5 rounded-lg text-primary">
+<span class="material-symbols-outlined">sync</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="text-slate-900 dark:text-white font-bold text-base leading-tight">System Maintenance Scheduled</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-primary text-[10px] font-black uppercase tracking-wider">Low Severity</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">BP-DSS Financial will undergo routine server maintenance this Saturday between 02:00 AM and 04:00 AM UTC.</p>
+<p class="text-slate-400 text-xs font-medium flex items-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                Oct 23, 2023 • 11:30 AM
+                            </p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="group p-2 hover:bg-slate-100 rounded-full transition-colors" title="Mark as read">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Empty State Example (Hidden by default) -->
+<div class="hidden flex flex-col items-center justify-center py-20 px-4 text-center">
+<div class="size-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-6">
+<span class="material-symbols-outlined text-5xl">notifications_off</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900">All clear!</h4>
+<p class="text-slate-500 mt-2 max-w-xs">You have no new notifications or alerts at this moment. We'll notify you when something happens.</p>
+<button class="mt-8 px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all">
+                        Check Archive
+                    </button>
+</div>
+</section>
+<!-- Loading Skeleton (Hidden by default) -->
+<div class="hidden p-8 space-y-4 max-w-5xl animate-pulse">
+<div class="bg-white rounded-xl h-24 border border-slate-200"></div>
+<div class="bg-white rounded-xl h-24 border border-slate-200"></div>
+<div class="bg-white rounded-xl h-24 border border-slate-200"></div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-auto p-8 border-t border-slate-200 bg-white/50 dark:bg-slate-900/50">
+<p class="text-slate-400 text-xs font-medium text-center italic">BP-DSS Secure Notification Protocol v4.2.0-stable</p>
+</footer>
+</main>
+</div>
+</body></html>
