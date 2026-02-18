@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BP-DSS | Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            background-color: #e7ebf3;
+            color: #135bec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight">BP-DSS</h1>
+
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="dashboard.html">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="upload_data.html">
+<span class="material-symbols-outlined text-[22px]">cloud_upload</span>
+<span class="text-sm font-medium">Upload Data</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="prediction.html">
+<span class="material-symbols-outlined text-[22px]">diamond</span>
+<span class="text-sm font-medium">Predictions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="alerts.html">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="text-sm font-medium">Alerts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="transactions.html">
+<span class="material-symbols-outlined text-[22px]">history</span>
+<span class="text-sm font-medium">Transactions</span>
+</a>
+<a class="active-nav flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold" href="settings.html">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span>Settings</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</nav>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 m-4 rounded-xl">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+</div>
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Help Center</span>
+</div>
+<p class="text-[11px] text-slate-500 mb-3">Need help with the DSS platform? Check our guides.</p>
+<button class="w-full py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-xs font-bold text-slate-700 dark:text-white shadow-sm">View Docs</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Navbar -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 flex items-center justify-between">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Search for reports, data, or settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">mail</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-tight">Princy Patel</p>
+
+</div>
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGICcNifU2nEyha4bavpzD5Z_Ywj819A7fdjgxpin8D8mo_RhThArbTGxuQHDlA__SXZLiQsRwnbzk2Kr1rQG98UmOgUJ7cEPRC4yQBBzHq7iEEAYQJeXNRUB4VUR4y_Ylfle3gwIl3lGaVRrmB9IufyweDiRRSxTksEvIAdDBk0jkbJmvHdtmq_HZ8a_LoUe1fcH3t61wDaKVHB1yIgl6BGixLUCiqhodEKmz4Um65hcSW11XmhsQdnYdvBarMacglRtQd91JyIBK" class="w-10 h-10 rounded-full border-2 border-slate-100 dark:border-slate-800" data-alt="Professional admin user headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZBiWg5XTO4VsDLJGgDsnn6VmPnjqEUQd5RPrv-8t3QQ5flv76ZuD2HBxp8PdmB05daYPlTcrW4FtD0zicepGgGB3YKYYugkzz7JRXKWwv-30jvQ4jy2be3gcdC5a-_hxxCHVo_Aq64iRMcoPefnzYjwvrQ28ecJo9iGopqQXOPKujfMnXtG-grDOoDi8f21DhPwZQg5de4LEUkFalvW4BqEXmhenYdrzS09h561UHSKzaB2DIqFwCZVcFz6zRIukSS4BHSTD7-YNc"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
+<div class="max-w-5xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Account Settings</h2>
+<p class="text-slate-500 mt-1 font-medium">Manage your personal information, security preferences, and system behavior.</p>
+</div>
+<div class="grid grid-cols-1 gap-8">
+<!-- 1. Profile Settings -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person_outline</span>
+                                Profile Settings
+                            </h3>
+</div>
+<div class="p-6">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex flex-col items-center gap-3">
+<div class="relative">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGICcNifU2nEyha4bavpzD5Z_Ywj819A7fdjgxpin8D8mo_RhThArbTGxuQHDlA__SXZLiQsRwnbzk2Kr1rQG98UmOgUJ7cEPRC4yQBBzHq7iEEAYQJeXNRUB4VUR4y_Ylfle3gwIl3lGaVRrmB9IufyweDiRRSxTksEvIAdDBk0jkbJmvHdtmq_HZ8a_LoUe1fcH3t61wDaKVHB1yIgl6BGixLUCiqhodEKmz4Um65hcSW11XmhsQdnYdvBarMacglRtQd91JyIBK" class="w-32 h-32 rounded-full object-cover border-4 border-slate-50 dark:border-slate-800" data-alt="User profile photo preview placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgI8tJnUrIsUBOAK8r20z8Ge0CHiWQk8gppXAaJHVi-tYDyol4I8YWGaA7p4SENDCrkahxSG8lLpja5a3Z7-N4nNz7XesRjtyzb1uxPioQJuMJwrnJJzSONCV3pxOn-z4ZURyT47Aga-hbjT9Uk7jRO_DYjTCZ7a3mX4cI8Yi29NpQMKFvUdnk8UTFldN2Zisiw5NgXwvBWCDI0th14dld1HIdOeVax3zhGzzYUAWjB1iqMq8kzwoO_T2UmtSVhmiGIcsUdMWlZ20h"/>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Profile Photo</span>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Full Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium" type="text" />
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium" type="email" />
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Phone Number</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium" type="tel" />
+</div>
+
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all shadow-md active:scale-95">Save Changes</button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- 2. Security Settings -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 h-full flex flex-col">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">security</span>
+                                    Security Settings
+                                </h3>
+</div>
+<div class="p-6 space-y-6 flex-1">
+<div class="space-y-4">
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Current Password</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm" placeholder="••••••••" type="password"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">New Password</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm" placeholder="••••••••" type="password"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Confirm Password</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-slate-50 dark:border-slate-800">
+<div class="flex items-center justify-between group cursor-pointer">
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Two-factor authentication</p>
+<p class="text-xs text-slate-500 font-medium">Secure your account with 2FA codes</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between group cursor-pointer">
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Login alerts</p>
+<p class="text-xs text-slate-500 font-medium">Get notified of new sign-in attempts</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all shadow-md">Update Security</button>
+</div>
+</section>
+<!-- 3. Notification Settings -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 h-full flex flex-col">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+                                    Notification Settings
+                                </h3>
+</div>
+<div class="p-6 space-y-6 flex-1">
+<div class="p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">Communication Preferences</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">Choose how you want to be alerted about critical platform updates and reports.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">mail</span>
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Email Notifications</p>
+<p class="text-xs text-slate-500">Transaction alerts and security logs</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">sms</span>
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">SMS Alerts</p>
+<p class="text-xs text-slate-500">Critical system failure warnings</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">description</span>
+<div>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Monthly Reports</p>
+<p class="text-xs text-slate-500">Analytics summary and performance audit</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all shadow-md">Save Preferences</button>
+</div>
+</section>
+</div>
+<!-- 4. System Preferences -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+                                System Preferences
+                            </h3>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Default Currency</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium">
+<option selected="">USD ($)</option>
+<option>INR (₹)</option>
+<option>EUR (€)</option>
+<option>GBP (£)</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Date Format</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium">
+<option selected="">MM/DD/YYYY</option>
+<option>DD/MM/YYYY</option>
+<option>YYYY-MM-DD</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Language</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm font-medium">
+<option selected="">English (US)</option>
+<option>Gujarati</option>
+<option>Hindi</option>
+<option>Spanish</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Display Theme</label>
+<div class="flex items-center gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+<button class="flex-1 flex items-center justify-center gap-2 py-1.5 rounded-md bg-white dark:bg-slate-700 shadow-sm text-primary">
+<span class="material-symbols-outlined text-sm">light_mode</span>
+<span class="text-xs font-bold">Light</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-1.5 rounded-md text-slate-500">
+<span class="material-symbols-outlined text-sm">dark_mode</span>
+<span class="text-xs font-bold">Dark</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all shadow-md">Save Settings</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer/Help Link -->
+<div class="mt-12 mb-8 text-center">
+<p class="text-slate-500 text-sm font-medium">Can't find what you're looking for? <a class="text-primary font-bold hover:underline" href="#">Contact System Administrator</a></p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

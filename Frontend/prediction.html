@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-50" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BP-DSS | Predictions</title>
+
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Chart.js for Forecast Visualization -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#135bec',
+            secondary: '#64748b',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+<style data-purpose="layout-styling">
+    .sidebar-active {
+      background-color: rgba(19, 91, 236, 0.1);
+      border-right: 4px solid #135bec;
+      color: #135bec;
+    }
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="h-full overflow-hidden">
+<!-- BEGIN: MainLayout -->
+<div class="flex h-full">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden lg:flex" data-purpose="navigation-sidebar" id="sidebar">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-primary tracking-tight">BP-DSS</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-custom transition-colors" href="dashboard.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Dashboard
+        </a>
+<a class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-custom transition-colors" href="upload_data.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Upload Data
+        </a>
+<a class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-custom transition-colors" href="analytics.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Analytics
+        </a>
+<a class="sidebar-active flex items-center px-4 py-3 font-medium rounded-custom" href="predictions.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Predictions
+        </a>
+<a class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-custom transition-colors" href="alerts.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Alerts
+        </a>
+</nav>
+<div class="px-4 py-6 border-t border-slate-200">
+<a class="flex items-center px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-custom transition-colors mb-1" href="profile.html">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Profile
+        </a>
+<button class="w-full flex items-center px-4 py-3 text-red-600 hover:bg-red-50 rounded-custom transition-colors" id="logoutBtn">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Logout
+        </button>
+</div>
+</aside>
+
+<main class="flex-1 flex flex-col h-full bg-slate-50 overflow-y-auto">
+<!-- Top Header -->
+<header class="bg-white border-b border-slate-200 px-8 py-4 sticky top-0 z-10 flex justify-between items-center">
+<h2 class="text-xl font-semibold text-slate-800">AI Financial Predictions</h2>
+<div class="flex items-center space-x-4">
+<span class="text-sm text-slate-500">Last updated: <span id="lastUpdated">Today, 09:00 AM</span></span>
+<button class="bg-primary text-white px-4 py-2 rounded-custom text-sm font-medium hover:opacity-90 transition-opacity">
+            Run Analysis
+          </button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- BEGIN: KPI Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-custom border border-slate-200 shadow-sm" data-purpose="kpi-card">
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Predicted Revenue</p>
+<div class="mt-2 flex items-baseline">
+<span class="text-3xl font-bold text-slate-900" id="predictedRevenueValue">$1,245,000</span>
+<span class="ml-2 text-sm font-medium text-emerald-600">+8.2%</span>
+</div>
+<p class="mt-1 text-sm text-slate-400">Forecast for next 30 days</p>
+</div>
+<div class="bg-white p-6 rounded-custom border border-slate-200 shadow-sm">
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Confidence Score</p>
+<div class="mt-2 flex items-baseline">
+<span class="text-3xl font-bold text-slate-900">94.2%</span>
+</div>
+<p class="mt-1 text-sm text-slate-400">Based on historical variance</p>
+</div>
+<div class="bg-white p-6 rounded-custom border border-slate-200 shadow-sm">
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Churn Risk</p>
+<div class="mt-2 flex items-baseline">
+<span class="text-3xl font-bold text-slate-900">1.4%</span>
+</div>
+<p class="mt-1 text-sm text-slate-400">Predicted decrease vs LY</p>
+</div>
+</section>
+<!-- END: KPI Section -->
+<!-- BEGIN: Chart Section -->
+<section class="bg-white p-8 rounded-custom border border-slate-200 shadow-sm" data-purpose="chart-area">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-semibold text-slate-800">Revenue Forecast</h3>
+<div class="flex items-center space-x-2">
+<span class="inline-block w-3 h-3 bg-slate-400 rounded-full"></span>
+<span class="text-xs text-slate-500 mr-4">Actual</span>
+<span class="inline-block w-3 h-3 bg-primary rounded-full"></span>
+<span class="text-xs text-slate-500">Predicted</span>
+</div>
+</div>
+<div class="chart-container">
+<canvas id="forecastChart"></canvas>
+</div>
+</section>
+<!-- END: Chart Section -->
+<!-- BEGIN: Insights Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="bg-white p-8 rounded-custom border border-slate-200 shadow-sm" data-purpose="ai-insights-card">
+<div class="flex items-center mb-6">
+<div class="p-2 bg-blue-50 rounded-lg text-primary mr-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.364-6.364l-.707-.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M12 21V5a2 2 0 012 2v2a2 2 0 01-2 2H8a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-lg font-semibold text-slate-800">AI Insights</h3>
+</div>
+<ul class="space-y-4" id="insightsList">
+<li class="flex items-start">
+<span class="flex-shrink-0 w-1.5 h-1.5 mt-2 rounded-full bg-primary mr-3"></span>
+<p class="text-slate-600 text-sm leading-relaxed">Revenue is projected to surge by 12% in the last week of the month due to historical seasonal trends and current pipeline velocity.</p>
+</li>
+<li class="flex items-start">
+<span class="flex-shrink-0 w-1.5 h-1.5 mt-2 rounded-full bg-primary mr-3"></span>
+<p class="text-slate-600 text-sm leading-relaxed">Potential liquidity gap detected between Day 15 and Day 20. Consider deferring non-critical CapEx to maintain healthy cash reserves.</p>
+</li>
+<li class="flex items-start">
+<span class="flex-shrink-0 w-1.5 h-1.5 mt-2 rounded-full bg-primary mr-3"></span>
+<p class="text-slate-600 text-sm leading-relaxed">Upsell opportunities identified in the Enterprise segment; a 5% increase in conversion here could drive an additional $45k in predicted ARR.</p>
+</li>
+</ul>
+</div>
+<div class="bg-white p-8 rounded-custom border border-slate-200 shadow-sm" data-purpose="strategy-recommendation">
+<h3 class="text-lg font-semibold text-slate-800 mb-6">Strategic Advice</h3>
+<div class="space-y-6">
+<div class="p-4 bg-slate-50 rounded-custom border-l-4 border-primary">
+<h4 class="text-sm font-semibold text-slate-900 mb-1">Optimize Marketing Spend</h4>
+<p class="text-xs text-slate-500">Shift 15% of budget from underperforming channels to search intent keywords to capture predicted demand spike.</p>
+</div>
+<div class="p-4 bg-slate-50 rounded-custom border-l-4 border-emerald-500">
+<h4 class="text-sm font-semibold text-slate-900 mb-1">Customer Retention</h4>
+<p class="text-xs text-slate-500">The model predicts lower churn in retail. Focus loyalty programs on high-value retail accounts to lock in Q4 revenue.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Insights Section -->
+</div>
+</main>
+<!-- END: MainContent -->
+</div>
+<!-- END: MainLayout -->
+<script data-purpose="auth-and-fetch">
+    /**
+     * Authentication Check & Data Fetching
+     */
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('jwt_token');
+      
+      // Redirect if not logged in
+      if (!token) {
+        // window.location.href = 'login.html'; // Logic commented for preview
+        console.warn('No JWT found. Redirecting to login...');
+      }
+
+      try {
+        // Mock fetch for demonstration if local environment not active
+        // const response = await fetch('http://localhost:8080/api/predictions', {
+        //   headers: { 'Authorization': `Bearer ${token}` }
+        // });
+        // const data = await response.json();
+        
+        // Render Chart after data would be fetched
+        renderForecastChart();
+      } catch (error) {
+        console.error('Failed to fetch predictions:', error);
+      }
+
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('jwt_token');
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+<script data-purpose="chart-rendering">
+    /**
+     * Forecast Chart Initialization
+     */
+    function renderForecastChart() {
+      const ctx = document.getElementById('forecastChart').getContext('2d');
+      
+      const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const actualData = [650000, 720000, 680000, 810000, 790000, 850000, null, null, null, null, null, null];
+      const predictedData = [null, null, null, null, null, 850000, 920000, 1050000, 1100000, 1150000, 1200000, 1245000];
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Actual Revenue',
+              data: actualData,
+              borderColor: '#94a3b8',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              pointRadius: 4,
+              pointBackgroundColor: '#fff',
+              tension: 0.3
+            },
+            {
+              label: 'Predicted Revenue',
+              data: predictedData,
+              borderColor: '#135bec',
+              backgroundColor: 'rgba(19, 91, 236, 0.05)',
+              borderWidth: 3,
+              borderDash: [5, 5],
+              pointRadius: 4,
+              pointBackgroundColor: '#135bec',
+              fill: true,
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: { color: '#f1f5f9' },
+              ticks: {
+                callback: (val) => '$' + val / 1000 + 'k',
+                font: { family: 'Inter' }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { family: 'Inter' } }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body></html>
